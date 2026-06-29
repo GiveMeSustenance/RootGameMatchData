@@ -1,0 +1,74 @@
+[
+  {
+    "id": "2026-04-16 #1",
+    "totalTurns": 27,
+    "durationMinutes": 47,
+    "setup": {
+      "isAdset": true,
+      "isDraft": true,
+      "deck": "Exiles & Partisans",
+      "map": "Autumn",
+      "isRandomSuits": true
+    },
+    "seat4": {
+      "name": "Sustenance",
+      "faction": "Vagabond - Scoundrel",
+      "victory": false,
+      "victoryDetail": "11 VP"
+    },
+    "seat3": {
+      "name": "frds",
+      "faction": "Eyrie Dynasties",
+      "victory": true,
+      "victoryDetail": "31 VP"
+    },
+    "seat2": {
+      "name": "HaoDZ",
+      "faction": "Woodland Alliance",
+      "victory": false,
+      "victoryDetail": "10 VP"
+    },
+    "seat1": {
+      "name": "Navi",
+      "faction": "Marquise de Cat",
+      "victory": false,
+      "victoryDetail": "8 VP"
+    }
+  },
+  {
+    "id": "2026-04-16 #2",
+    "totalTurns": 0,
+    "durationMinutes": "Async",
+    "setup": {
+      "isAdset": true,
+      "isDraft": true,
+      "deck": "Exiles & Partisans",
+      "map": "Autumn",
+      "isRandomSuits": true
+    },
+    "seat4": {
+      "name": "HaoDZ",
+      "faction": "Marquise de Cat",
+      "victory": false,
+      "victoryDetail": "..."
+    },
+    "seat3": {
+      "name": "Sustenance",
+      "faction": "Vagabond - Thief",
+      "victory": false,
+      "victoryDetail": "..."
+    },
+    "seat2": {
+      "name": "frds",
+      "faction": "Riverfolk Company",
+      "victory": false,
+      "victoryDetail": "..."
+    },
+    "seat1": {
+      "name": "ChintzyGnat7",
+      "faction": "Eyrie Dynasties",
+      "victory": false,
+      "victoryDetail": "..."
+    }
+  }
+]

@@ -1,0 +1,616 @@
+:root {
+  /* Header */
+  --header-width: var(--content-width);
+  --header-height: 140px;
+  --header-margin-top: 6px;
+
+  --header-padding-horizontal: 132px;
+  --header-content-height: 76px;
+
+  /* Content */
+  --content-width: 800px;
+  --content-height: 1800px;
+  --content-margin-top: 20px;
+  --content-margin-left: 120px;
+
+  /* Data Cells */
+  --data-width: calc(var(--content-width) - 120px); /* manual offset */
+  --data-height: 40px;
+  --data-id-width: 140px;
+  --data-factions-width: 112px;
+  --data-map-width: 96px;
+  --data-deck-width: 48px;
+  --data-duration-width: 78px;
+  --data-victor-width: 48px;
+
+  --data-margin-bottom: 6px;
+  --data-padding-vertical: 11px;
+  --data-padding-horizontal: 14px;
+  --data-margin-inbetween: 5px;
+  --data-border-radius: 6px;
+
+  /* Match Details */
+  --match-detail-width: 680px;
+  --match-detail-height: 786px;
+  --match-detail-margin-top: 64px;
+  --match-detail-margin-left: 60px;
+
+  --match-detail-header-margin-horizontal: 140px;
+  --match-detail-header-height: 44px;
+
+  --match-detail-content-width: calc(
+    var(--match-detail-width) - 2 * var(--match-detail-padding-horizontal) +
+      82px
+  ); /* manual offset */
+  --match-detail-content-height: calc(
+    var(--match-detail-height) - 3px
+  ); /* manual offset */
+
+  --match-detail-content-margin-top: 36px;
+
+  --match-detail-padding-horizontal: 48px;
+
+  /* Match Detail Tiles */
+  --match-detail-content-block-tile-height: 36px;
+  --match-detail-content-block-tile-margin-bottom: 4px;
+  --match-detail-content-block-tile-margin-top: 18px;
+  --match-detail-content-block-tile-margin-right: 6px;
+  --match-detail-content-block-tile-margin-large: 18px;
+  --match-detail-content-block-tile-padding-vertical: 8px;
+  --match-detail-content-block-tile-padding-horizontal: var(
+    --data-padding-horizontal
+  );
+
+  --match-detail-content-block-turns-width: 76px;
+  --match-detail-content-block-duration-width: 98px;
+  --match-detail-content-block-isAdvancedSetup-width: 144px;
+  --match-detail-content-block-isDraft-width: 76px;
+  --match-detail-content-block-id-1-width: 112px;
+  --match-detail-content-block-id-2-width: 48px;
+  --match-detail-content-block-id-margin-inbetween: 4px;
+  --match-detail-content-block-id-padding-horizontal: 8px;
+  --match-detail-content-block-deck-width: 146px;
+
+  /* Border Image */
+  --border-image-width: 52px;
+
+  /* Colors */
+  --color-background-light: #fbf5eb;
+  --color-background-light-hover: #fbeddb;
+  --color-background-dark: #f9cb9c;
+  --color-title: #b45f06;
+  --color-content-header: #412202;
+  --color-content-text: #301401;
+}
+
+/******************************************************************************/
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: Garamond, serif;
+}
+
+/** HEADER ********************************************************************/
+div.header {
+  width: calc(var(--header-width) - 2 * var(--border-image-width));
+  height: calc(var(--header-height) - 2 * var(--border-image-width));
+
+  position: relative;
+  margin-top: var(--header-margin-top);
+  margin-left: var(--content-margin-left);
+
+  border: var(--border-image-width) solid transparent;
+  border-image: url(root-game-border-image.png) 81 round;
+
+  font-family: "Fredericka the Great";
+}
+
+div.header__background {
+  width: calc(
+    var(--header-width) - var(--border-image-width) + 34px
+  ); /* manual offset */
+  height: calc(
+    var(--header-height) - var(--border-image-width) + 34px
+  ); /* manual offset */
+
+  position: absolute;
+  top: -42px; /* manual offset */
+  left: -42px; /* manual offset */
+  z-index: -2;
+
+  background-color: var(--color-background-dark);
+}
+
+div.header__content {
+  width: calc(
+    var(--header-width) - 2 * var(--border-image-width) - 2 *
+      var(--header-padding-horizontal) + 82px
+  ); /* manual offset */
+  height: var(--header-content-height);
+
+  position: relative;
+  top: calc(
+    var(--header-height) / 2 - 91px
+  ); /* manual offset (for centering) */
+  margin: auto;
+
+  border: 1px solid #301401;
+
+  background-color: var(--color-background-light);
+}
+
+h1.header__title {
+  position: relative;
+  margin-top: calc(var(--header-content-height) / 2 - 37px);
+
+  text-align: center;
+  font-size: 40px;
+  line-height: 48px; /* in case Fredericka doesn't display */
+
+  color: var(--color-title);
+}
+
+p.header__subtitle {
+  position: relative;
+  margin-top: -33px;
+
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px; /* in case Fredericka doesn't display */
+
+  color: var(--color-content-header);
+}
+
+/** CONTENT CONTAINER *********************************************************/
+div.content {
+  width: calc(var(--content-width) - 2 * var(--border-image-width));
+  height: calc(var(--content-height) - var(--border-image-width));
+
+  position: relative;
+  margin-top: calc(var(--content-margin-top) - 14px); /* manual offset */
+  margin-left: var(--content-margin-left);
+  margin-bottom: -8px; /* manual offset */
+
+  border: var(--border-image-width) solid transparent;
+  border-image: url(root-game-border-image.png) 81 round;
+  border-bottom: none;
+}
+
+div.content__background {
+  width: calc(
+    var(--content-width) - var(--border-image-width) + 34px
+  ); /* manual offset */
+  height: calc(var(--content-height) - 10px); /* manual offset */
+
+  position: absolute;
+  top: -42px; /* manual offset */
+  left: -43px; /* manual offset */
+  z-index: -2;
+
+  background-color: var(--color-background-dark);
+}
+
+/** DATA **********************************************************************/
+div.data {
+  width: var(--data-width);
+  height: var(--data-height);
+
+  position: relative;
+  margin: auto;
+  margin-bottom: var(--data-margin-bottom);
+}
+
+div.data_cell {
+  height: calc(100% - var(--data-padding-vertical));
+
+  padding-top: var(--data-padding-vertical);
+  padding-left: var(--data-padding-horizontal);
+  padding-right: var(--data-padding-horizontal);
+
+  background-color: var(--color-background-light);
+}
+
+div.data__id {
+  width: calc(var(--data-id-width) - 2 * var(--data-padding-horizontal));
+
+  position: absolute;
+  left: 0;
+
+  border-radius: var(--data-border-radius) 0 0 var(--data-border-radius);
+
+  text-align: right;
+}
+
+div.data__factions {
+  width: var(--data-factions-width);
+  /* Uses center-align so no need for padding */
+
+  position: absolute;
+  left: calc(var(--data-id-width) + var(--data-margin-inbetween));
+
+  padding-left: 0;
+  padding-right: 0;
+
+  text-align: center;
+}
+
+div.data__map {
+  width: calc(var(--data-map-width) - 2 * var(--data-padding-horizontal));
+
+  position: absolute;
+  left: calc(
+    var(--data-id-width) + var(--data-margin-inbetween) +
+      var(--data-factions-width) + var(--data-margin-inbetween)
+  );
+
+  text-align: left;
+}
+
+div.data__deck {
+  width: calc(var(--data-deck-width) - 2 * var(--data-padding-horizontal));
+
+  position: absolute;
+  left: calc(
+    var(--data-id-width) + var(--data-margin-inbetween) +
+      var(--data-factions-width) + var(--data-margin-inbetween) +
+      var(--data-map-width) + var(--data-margin-inbetween)
+  );
+
+  text-align: left;
+}
+
+div.data__duration {
+  width: calc(var(--data-duration-width) - 2 * var(--data-padding-horizontal));
+
+  position: absolute;
+  left: calc(
+    var(--data-id-width) + var(--data-margin-inbetween) +
+      var(--data-factions-width) + var(--data-margin-inbetween) +
+      var(--data-map-width) + var(--data-margin-inbetween) +
+      var(--data-deck-width) + var(--data-margin-inbetween)
+  );
+
+  text-align: left;
+}
+
+div.data__victory {
+  width: calc(
+    var(--data-width) -
+      (
+        var(--data-id-width) + var(--data-margin-inbetween) +
+          var(--data-factions-width) + var(--data-margin-inbetween) +
+          var(--data-map-width) + var(--data-margin-inbetween) +
+          var(--data-deck-width) + var(--data-margin-inbetween) +
+          var(--data-duration-width) + var(--data-margin-inbetween)
+      ) -
+      2 * var(--data-padding-horizontal)
+  );
+
+  position: absolute;
+  left: calc(
+    var(--data-id-width) + var(--data-margin-inbetween) +
+      var(--data-factions-width) + var(--data-margin-inbetween) +
+      var(--data-map-width) + var(--data-margin-inbetween) +
+      var(--data-deck-width) + var(--data-margin-inbetween) +
+      var(--data-duration-width) + var(--data-margin-inbetween)
+  );
+
+  border-radius: 0 var(--data-border-radius) var(--data-border-radius) 0;
+
+  text-align: left;
+}
+
+div.data__victory_cell {
+  float: left;
+}
+
+div.data__victory__factions {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+img.data__faction-icon,
+img.data__deck-icon {
+  width: 18px;
+  height: 18px;
+}
+
+div.data:hover div.data__id,
+div.data:hover div.data__factions,
+div.data:hover div.data__map,
+div.data:hover div.data__deck,
+div.data:hover div.data__duration,
+div.data:hover div.data__victory {
+  background-color: var(--color-background-light-hover);
+}
+
+div.data:hover div.data__id,
+div.data:hover div.data__map,
+div.data:hover div.data__duration,
+div.data:hover div.data__victory,
+div.data:hover div.data__victory__detail {
+  text-decoration: underline;
+}
+
+/** MATCH DETAILS *************************************************************/
+div.match-detail-container--fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* allow clicks to pass through */
+}
+
+div.match-detail {
+  width: var(--match-detail-width);
+  height: var(--match-detail-height);
+
+  position: absolute;
+  top: calc(var(--match-detail-margin-top) - 8px); /* manual offset */
+  left: calc(
+    var(--content-width) + var(--content-margin-left) +
+      var(--match-detail-margin-left)
+  );
+  pointer-events: auto; /* restore hover/cursor behavior for the match-detail */
+
+  border: var(--border-image-width) solid transparent;
+  border-image: url(root-game-border-image.png) 81 round;
+}
+
+div.match-detail__background {
+  width: calc(var(--match-detail-width) + 84px);
+  height: calc(var(--match-detail-height) + 84px);
+
+  position: absolute;
+  top: -42px; /* manual offset */
+  left: -42px; /* manual offset */
+  z-index: -2;
+
+  background-color: var(--color-background-dark);
+}
+
+div.match-detail__header {
+  width: calc(
+    var(--match-detail-width) - 2 * var(--border-image-width) - 2 *
+      var(--match-detail-header-margin-horizontal) + 186px
+  );
+  height: var(--match-detail-header-height);
+
+  position: relative;
+  top: calc(
+    var(--match-detail-header-height) / 2 - 41px
+  ); /* manual offset (for centering) */
+  margin: auto;
+
+  border: 1px solid #301401;
+
+  background-color: var(--color-background-light);
+}
+
+h2.match-detail__title {
+  position: relative;
+  margin-top: calc(var(--match-detail-header-height) / 2 - 17px);
+
+  text-align: center;
+  font-size: 28px;
+  line-height: 36px; /* in case Fredericka doesn't display */
+
+  font-family: "Fredericka the Great";
+  color: var(--color-content-header);
+}
+
+/** MATCH DETAIL CONTENT ******************************************************/
+div.match-detail__content {
+  width: var(--match-detail-content-width);
+  height: var(--match-detail-content-height);
+
+  position: relative;
+  margin: auto;
+  margin-top: calc(
+    var(--match-detail-content-margin-top) - 21px
+  ); /* manual offset */
+
+  /* background-color: blue; */
+}
+
+/** MATCH DETAIL CONTENT BLOCKS ***********************************************/
+div.match-detail__content__block {
+  height: calc(
+    2 * var(--match-detail-content-block-tile-height) +
+      var(--match-detail-content-block-tile-margin-bottom)
+  );
+}
+
+div#match-detail__content__block__turns {
+  width: var(--match-detail-content-block-turns-width);
+
+  position: absolute;
+  top: 0;
+  left: 42px; /* manual offset */
+}
+
+div#match-detail__content__block__duration {
+  width: var(--match-detail-content-block-duration-width);
+
+  position: absolute;
+  top: 0;
+  left: calc(
+    var(--match-detail-content-block-turns-width) +
+      var(--match-detail-content-block-tile-margin-right) + 42px
+  );
+}
+
+div#match-detail__content__block__isAdvancedSetup {
+  width: var(--match-detail-content-block-isAdvancedSetup-width);
+
+  position: absolute;
+  top: 0;
+  left: calc(
+    var(--match-detail-content-block-turns-width) +
+      var(--match-detail-content-block-tile-margin-right) +
+      var(--match-detail-content-block-duration-width) +
+      var(--match-detail-content-block-tile-margin-right) + 42px
+  );
+}
+
+div#match-detail__content__block__isDraft {
+  width: var(--match-detail-content-block-isDraft-width);
+
+  position: absolute;
+  top: 0;
+  left: calc(
+    var(--match-detail-content-block-turns-width) +
+      var(--match-detail-content-block-tile-margin-right) +
+      var(--match-detail-content-block-duration-width) +
+      var(--match-detail-content-block-tile-margin-right) +
+      var(--match-detail-content-block-isAdvancedSetup-width) +
+      var(--match-detail-content-block-tile-margin-right) + 42px
+  );
+}
+
+div#match-detail__content__block__id {
+  width: calc(
+    var(--match-detail-content-block-id-1-width) +
+      var(--match-detail-content-block-id-2-width) +
+      var(--match-detail-content-block-id-margin-inbetween)
+  );
+
+  position: absolute;
+  top: 0;
+  right: 42px;
+}
+
+div#match-detail__content__block__deck {
+  width: var(--match-detail-content-block-deck-width);
+
+  position: absolute;
+  top: calc(
+    2 * var(--match-detail-content-block-tile-height) +
+      var(--match-detail-content-block-tile-margin-bottom) +
+      var(--match-detail-content-block-tile-margin-top) + 16px
+  );
+  left: 101px;
+}
+
+div#match-detail__content__block__map {
+  width: 300px;
+
+  position: absolute;
+  top: calc(
+    2 * var(--match-detail-content-block-tile-height) +
+      var(--match-detail-content-block-tile-margin-bottom) +
+      var(--match-detail-content-block-tile-margin-top)
+  );
+  left: calc(
+    var(--match-detail-content-block-deck-width) +
+      var(--match-detail-content-block-tile-margin-large) + 101px
+  );
+}
+
+/** MATCH DETAIL INDIVIDUAL TILES *********************************************/
+div.match-detail__content__block__wrapper {
+  width: calc(100% - 2 * var(--data-padding-horizontal));
+  height: calc(
+    var(--match-detail-content-block-tile-height) -
+      var(--match-detail-content-block-tile-padding-vertical)
+  );
+
+  position: relative;
+  margin-bottom: var(--match-detail-content-block-tile-margin-bottom);
+
+  padding-top: var(--match-detail-content-block-tile-padding-vertical);
+  padding-left: var(--data-padding-horizontal);
+  padding-right: var(--data-padding-horizontal);
+
+  background-color: var(--color-background-light);
+}
+
+div.match-detail__content__block__wrapper-label {
+  border-radius: var(--data-border-radius) var(--data-border-radius) 0 0;
+
+  text-align: center;
+  font-weight: bold;
+}
+
+div.match-detail__content__block__wrapper-value {
+  border-radius: 0 0 var(--data-border-radius) var(--data-border-radius);
+}
+
+div#match-detail__content__block__turns__value {
+  text-align: right;
+}
+
+div#match-detail__content__block__duration__value {
+  text-align: right;
+}
+
+div#match-detail__content__block__isAdvancedSetup__value {
+  text-align: center;
+}
+
+div#match-detail__content__block__isDraft__value {
+  text-align: center;
+}
+
+div#match-detail__content__block__id-1__value {
+  width: calc(
+    var(--match-detail-content-block-id-1-width) -
+      var(--data-padding-horizontal) -
+      var(--match-detail-content-block-id-padding-horizontal)
+  );
+
+  position: absolute;
+
+  padding-right: var(--match-detail-content-block-id-padding-horizontal);
+
+  border-radius: 0 0 0 var(--data-border-radius);
+
+  text-align: right;
+}
+
+div#match-detail__content__block__id-2__value {
+  width: calc(
+    var(--match-detail-content-block-id-2-width) -
+      var(--data-padding-horizontal) -
+      var(--match-detail-content-block-id-padding-horizontal)
+  );
+
+  position: absolute;
+  left: calc(
+    var(--match-detail-content-block-id-1-width) +
+      var(--match-detail-content-block-id-margin-inbetween)
+  );
+
+  padding-left: var(--match-detail-content-block-id-padding-horizontal);
+
+  border-radius: 0 0 var(--data-border-radius) 0;
+
+  text-align: left;
+}
+
+div#match-detail__content__block__deck-image {
+  height: 180px;
+
+  border-radius: var(--data-border-radius) var(--data-border-radius) 0 0;
+
+  text-align: center;
+}
+
+div#match-detail__content__block__deck-value {
+  text-align: center;
+}
+
+div#match-detail__content__block__map-image {
+  height: 228.8px;
+
+  border-radius: var(--data-border-radius) var(--data-border-radius) 0 0;
+  text-align: center;
+}
+
+div#match-detail__content__block__map-value {
+  text-align: center;
+}
